@@ -15,23 +15,19 @@
 #include "google/protobuf/unknown_field_set.h"
 
 #include <cstddef>
+#include <cstdint>
 #include <string>
 #include <vector>
 
-#include "google/protobuf/stubs/callback.h"
-#include "google/protobuf/stubs/common.h"
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include "absl/base/macros.h"
 #include "absl/container/flat_hash_set.h"
-#include "absl/functional/bind_front.h"
 #include "absl/log/absl_check.h"
 #include "absl/strings/cord.h"
-#include "absl/synchronization/mutex.h"
-#include "absl/time/clock.h"
-#include "absl/time/time.h"
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/io/coded_stream.h"
-#include "google/protobuf/io/zero_copy_stream_impl.h"
+#include "google/protobuf/io/zero_copy_stream_impl_lite.h"
 #include "google/protobuf/port.h"
 #include "google/protobuf/test_util.h"
 #include "google/protobuf/text_format.h"
@@ -132,12 +128,12 @@ TEST_F(UnknownFieldSetTest, AllFieldsPresent) {
     }
   }
 
-  absl::flat_hash_set<uint32_t> unknown_tags;
+  absl::flat_hash_set<int32_t> unknown_tags;
   for (int i = 0; i < unknown_fields_->field_count(); i++) {
     unknown_tags.insert(unknown_fields_->field(i).number());
   }
 
-  for (uint32_t t : unknown_tags) {
+  for (int32_t t : unknown_tags) {
     EXPECT_NE(descriptor_->FindFieldByNumber(t), nullptr);
   }
 
@@ -285,7 +281,7 @@ TEST_F(UnknownFieldSetTest, ArenaSupportWorksDelete) {
 }
 
 TEST_F(UnknownFieldSetTest, SerializeFastAndSlowAreEquivalent) {
-  int size =
+  size_t size =
       WireFormat::ComputeUnknownFieldsSize(empty_message_.unknown_fields());
   std::string slow_buffer;
   std::string fast_buffer;

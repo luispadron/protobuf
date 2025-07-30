@@ -244,7 +244,7 @@ TEST_P(JsonTest, TestAlwaysPrintFieldsWithNoPresence) {
           R"("repeatedBool":[],"repeatedString":[],"repeatedBytes":[],"repeatedgroup":[],)"
           R"("repeatedNestedMessage":[],"repeatedForeignMessage":[],"repeatedImportMessage":[],)"
           R"("repeatedNestedEnum":[],"repeatedForeignEnum":[],"repeatedImportEnum":[],)"
-          R"("repeatedStringPiece":[],"repeatedCord":[],"repeatedLazyMessage":[]})"));
+          R"("repeatedStringPiece":[],"repeatedCord":[],"repeatedLazyMessage":[],"repeatedUtf8StringExtension":[]})"));
 }
 
 TEST_P(JsonTest, TestDisableLegacyNonconformantBehavior) {

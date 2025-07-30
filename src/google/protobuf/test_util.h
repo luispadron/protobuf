@@ -12,7 +12,13 @@
 #ifndef GOOGLE_PROTOBUF_TEST_UTIL_H__
 #define GOOGLE_PROTOBUF_TEST_UTIL_H__
 
+#include <string>
+#include <vector>
+
 #include <gtest/gtest.h>
+#include "absl/base/macros.h"
+#include "absl/log/absl_check.h"
+#include "absl/strings/str_cat.h"
 #include "absl/strings/string_view.h"
 #include "google/protobuf/unittest.pb.h"
 #include "google/protobuf/unittest_import.pb.h"
@@ -25,6 +31,7 @@ namespace google {
 namespace protobuf {
 // This file doesn't use these declarations, but some .cc files do.
 namespace unittest = ::proto2_unittest;
+// NOLINTNEXTLINE(misc-unused-alias-decls) - used by macros below.
 namespace unittest_import = ::proto2_unittest_import;
 
 namespace TestUtil {
@@ -1230,7 +1237,7 @@ inline void TestUtil::ReflectionTester::ExpectMessagesReleasedViaReflection(
       "optional_foreign_message",
       "optional_import_message",
   };
-  for (int i = 0; i < ABSL_ARRAYSIZE(fields); i++) {
+  for (uint i = 0; i < ABSL_ARRAYSIZE(fields); i++) {
     Message* released = reflection->ReleaseMessage(message, F(fields[i]));
     switch (expected_release_state) {
       case IS_NULL:
@@ -1616,6 +1623,14 @@ void SetOptionalFields(TestAllTypes* message) {
       "125");
 #endif  // !PROTOBUF_TEST_NO_DESCRIPTORS
   message->set_optional_bytes_cord("optional bytes cord");
+  message->set_optional_utf8_string("optional_utf8_string");
+  message->set_nested_string("nested_string");
+  message->mutable_single()->set_a(1);
+  message->mutable_single()->set_b(3);
+  message->mutable_single()->set_c(33);
+  message->mutable_required_message()->set_a(1);
+  message->mutable_required_message()->set_b(3);
+  message->mutable_required_message()->set_c(33);
 }
 
 // -------------------------------------------------------------------
@@ -1657,6 +1672,11 @@ void AddRepeatedFields1(TestAllTypes* message) {
       message, message->GetDescriptor()->FindFieldByName("repeated_cord"),
       "225");
 #endif  // !PROTOBUF_TEST_NO_DESCRIPTORS
+  message->add_repeated_utf8_string("226");
+  auto* multi = message->add_multi();
+  multi->set_a(1);
+  multi->set_b(3);
+  multi->set_c(33);
 }
 
 template <typename TestAllTypes>
@@ -1697,6 +1717,11 @@ void AddRepeatedFields2(TestAllTypes* message) {
       message, message->GetDescriptor()->FindFieldByName("repeated_cord"),
       "325");
 #endif  // !PROTOBUF_TEST_NO_DESCRIPTORS
+  message->add_repeated_utf8_string("326");
+  auto* multi = message->add_multi();
+  multi->set_a(2);
+  multi->set_b(4);
+  multi->set_c(44);
 }
 
 template <typename TestAllTypes>
@@ -1729,6 +1754,7 @@ void SetDefaultFields(TestAllTypes* message) {
       message, message->GetDescriptor()->FindFieldByName("default_cord"),
       "425");
 #endif  // !PROTOBUF_TEST_NO_DESCRIPTORS
+  message->set_test("1002");
 }
 
 template <typename TestAllTypes>
@@ -1768,6 +1794,11 @@ void ModifyRepeatedFields(TestAllTypes* message) {
       message, message->GetDescriptor()->FindFieldByName("repeated_cord"), 1,
       "525");
 #endif  // !PROTOBUF_TEST_NO_DESCRIPTORS
+  message->set_repeated_utf8_string(1, "526");
+  auto* multi = message->mutable_multi(1);
+  multi->set_a(3);
+  multi->set_b(6);
+  multi->set_c(66);
 }
 
 template <typename TestAllTypes>

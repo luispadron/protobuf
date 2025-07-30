@@ -43,6 +43,10 @@ option java_outer_classname = "UnittestProto";
 
 // This proto includes every type of field in both singular and repeated
 // forms.
+// Warning: Many tests make assume about the number of fields in TestAllTypes,
+//          including assumptions about wire compatibility of overlay messages.
+//          Take care when adding or modifying fields in this message
+//          to check TGP results and fix any issues.
 message TestAllTypes {
   message NestedMessage {
     // The field name "b" fails to compile in proto1 because it conflicts with
@@ -252,6 +256,25 @@ message TestAllTypes {
       lazy = true
     ];
   }
+
+  // Singular message containing required fields
+  TestRequired required_message = 120;
+
+  string optional_utf8_string = 130 [
+    features.utf8_validation = VERIFY
+  ];
+  repeated string repeated_utf8_string = 131 [
+    features.utf8_validation = VERIFY
+  ];
+
+  TestRequired single = 1000;
+  repeated TestRequired multi = 1001;
+
+  string test = 1002 [
+      default = "test"
+  ];
+
+  string nested_string = 1003;
 }
 
 // This proto includes a recursively nested message.
@@ -327,6 +350,10 @@ message TestAllExtensions {
   extensions 1 to max;
 }
 
+// Warning: some tests assume that TestAllTypes and TestAllExtensions are
+// wire compatible. Take care when adding or modifying fields in this message
+// to add a corresponding field in TestAllTypes and vice versa, ensuring that
+// they have the same field number and have compatible wire formats.
 extend TestAllExtensions {
   // Singular
   int32 optional_int32_extension = 1;
@@ -500,16 +527,27 @@ extend TestAllExtensions {
   TestAllTypes.NestedMessage oneof_nested_message_extension = 112;
   string oneof_string_extension = 113;
   bytes oneof_bytes_extension = 114;
+  // TODO: ctype=CORD is not supported for extension. Add
+  // ctype=CORD option back after it is supported.
+  string oneof_cord_extension = 115;
 
-  string optional_utf8_string_extension = 115 [
-    features.utf8_validation = VERIFY
+  string oneof_string_piece_extension = 116 [
+    ctype = STRING_PIECE
   ];
-  repeated string repeated_utf8_string_extension = 116 [
-    features.utf8_validation = VERIFY
+
+  TestAllTypes.NestedMessage oneof_lazy_nested_message = 117 [
+    lazy = true
   ];
 
   // Singular message containing required fields; used to test initialization.
-  TestRequired required_message_extension = 117;
+  TestRequired required_message_extension = 120;
+
+  string optional_utf8_string_extension = 130 [
+    features.utf8_validation = VERIFY
+  ];
+  repeated string repeated_utf8_string_extension = 131 [
+    features.utf8_validation = VERIFY
+  ];
 }
 
 message OptionalGroup_extension {
