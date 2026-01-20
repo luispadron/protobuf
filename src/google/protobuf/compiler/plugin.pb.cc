@@ -3,7 +3,7 @@
 // source: google/protobuf/compiler/plugin.proto
 // Protobuf C++ Version: 6.34.0-dev
 
-#include "google/protobuf/compiler/plugin.pb.h"
+#include "google/protobuf/compiler/plugin.proto.h"
 
 #include <algorithm>
 #include <type_traits>
@@ -17,6 +17,7 @@
 #include "google/protobuf/generated_message_reflection.h"
 #include "google/protobuf/reflection_ops.h"
 #include "google/protobuf/wire_format.h"
+#include "google/protobuf/descriptor.proto.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
@@ -1979,6 +1980,14 @@ void CodeGeneratorResponse::InternalSwap(CodeGeneratorResponse* PROTOBUF_RESTRIC
 }  // namespace google
 namespace google {
 namespace protobuf {
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::compiler::Version>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::compiler::Version>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::compiler::CodeGeneratorRequest>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::compiler::CodeGeneratorRequest>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::compiler::CodeGeneratorResponse_File>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::compiler::CodeGeneratorResponse_File>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::compiler::CodeGeneratorResponse>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::compiler::CodeGeneratorResponse>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
 }  // namespace protobuf
 }  // namespace google
 // @@protoc_insertion_point(global_scope)

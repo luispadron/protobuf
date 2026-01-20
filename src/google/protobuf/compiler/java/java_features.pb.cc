@@ -3,7 +3,7 @@
 // source: google/protobuf/compiler/java/java_features.proto
 // Protobuf C++ Version: 6.34.0-dev
 
-#include "google/protobuf/compiler/java/java_features.pb.h"
+#include "google/protobuf/compiler/java/java_features.proto.h"
 
 #include <algorithm>
 #include <type_traits>
@@ -17,6 +17,7 @@
 #include "google/protobuf/generated_message_reflection.h"
 #include "google/protobuf/reflection_ops.h"
 #include "google/protobuf/wire_format.h"
+#include "google/protobuf/descriptor.proto.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
@@ -629,6 +630,10 @@ PROTOBUF_CONSTINIT PROTOC_EXPORT
 }  // namespace pb
 namespace google {
 namespace protobuf {
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::pb::JavaFeatures_NestInFileClassFeature>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::pb::JavaFeatures_NestInFileClassFeature>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::pb::JavaFeatures>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::pb::JavaFeatures>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
 }  // namespace protobuf
 }  // namespace google
 // @@protoc_insertion_point(global_scope)

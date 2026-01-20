@@ -3,7 +3,7 @@
 // source: google/protobuf/descriptor.proto
 // Protobuf C++ Version: 6.34.0-dev
 
-#include "google/protobuf/descriptor.pb.h"
+#include "google/protobuf/descriptor.proto.h"
 
 #include <algorithm>
 #include <type_traits>
@@ -17663,6 +17663,74 @@ void GeneratedCodeInfo::InternalSwap(GeneratedCodeInfo* PROTOBUF_RESTRICT PROTOB
 }  // namespace google
 namespace google {
 namespace protobuf {
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FileDescriptorSet>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FileDescriptorSet>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FileDescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FileDescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::DescriptorProto_ExtensionRange>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::DescriptorProto_ExtensionRange>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::DescriptorProto_ReservedRange>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::DescriptorProto_ReservedRange>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::DescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::DescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::ExtensionRangeOptions_Declaration>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::ExtensionRangeOptions_Declaration>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::ExtensionRangeOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::ExtensionRangeOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FieldDescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FieldDescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::OneofDescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::OneofDescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::EnumDescriptorProto_EnumReservedRange>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::EnumDescriptorProto_EnumReservedRange>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::EnumDescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::EnumDescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::EnumValueDescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::EnumValueDescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::ServiceDescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::ServiceDescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::MethodDescriptorProto>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::MethodDescriptorProto>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FileOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FileOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::MessageOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::MessageOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FieldOptions_EditionDefault>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FieldOptions_EditionDefault>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FieldOptions_FeatureSupport>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FieldOptions_FeatureSupport>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FieldOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FieldOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::OneofOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::OneofOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::EnumOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::EnumOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::EnumValueOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::EnumValueOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::ServiceOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::ServiceOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::MethodOptions>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::MethodOptions>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::UninterpretedOption_NamePart>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::UninterpretedOption_NamePart>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::UninterpretedOption>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::UninterpretedOption>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FeatureSet_VisibilityFeature>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FeatureSet_VisibilityFeature>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FeatureSet>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FeatureSet>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FeatureSetDefaults_FeatureSetEditionDefault>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FeatureSetDefaults_FeatureSetEditionDefault>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::FeatureSetDefaults>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::FeatureSetDefaults>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::SourceCodeInfo_Location>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::SourceCodeInfo_Location>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::SourceCodeInfo>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::SourceCodeInfo>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::GeneratedCodeInfo_Annotation>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::GeneratedCodeInfo_Annotation>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
+template void* PROTOBUF_NONNULL Arena::DefaultConstruct<::google::protobuf::GeneratedCodeInfo>(Arena* PROTOBUF_NULLABLE);
+template void* PROTOBUF_NONNULL Arena::CopyConstruct<::google::protobuf::GeneratedCodeInfo>(Arena* PROTOBUF_NULLABLE, const void* PROTOBUF_NONNULL);
 }  // namespace protobuf
 }  // namespace google
 // @@protoc_insertion_point(global_scope)
