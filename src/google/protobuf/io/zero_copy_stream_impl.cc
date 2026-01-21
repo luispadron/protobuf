@@ -47,13 +47,20 @@ using google::protobuf::io::win32::write;
 
 namespace {
 
-// EINTR sucks.
-int close_no_eintr(int fd) {
-  int result;
-  do {
-    result = close(fd);
-  } while (result < 0 && errno == EINTR);
-  return result;
+// If close(fd) returns an error, there is really nothing special to do --
+// except on *some* systems in case `errno == EINTR`. Unfortunately, that case
+// is also a huge mess and the question whether fd was closed in this case
+// depends on the system. Linux *did* close `fd` in this case. POSIX.1-2024
+// introduced posix_close (and did other changes) which helps fix this mess.
+// The POSIX.1-2024 documentation for unistd.h specifies that
+// POSIX_CLOSE_RESTART needs to be provided (and the value defines the behavior
+// of posix_close). We use it to decide if we can use posix_close.
+int close_handle_eintr(int fd) {
+#if defined(POSIX_CLOSE_RESTART)
+  return posix_close(fd, 0);
+#else
+  return close(fd);
+#endif
 }
 
 }  // namespace
@@ -101,10 +108,7 @@ bool FileInputStream::CopyingFileInputStream::Close() {
   ABSL_CHECK(!is_closed_);
 
   is_closed_ = true;
-  if (close_no_eintr(file_) != 0) {
-    // The docs on close() do not specify whether a file descriptor is still
-    // open after close() fails with EIO.  However, the glibc source code
-    // seems to indicate that it is not.
+  if (close_handle_eintr(file_) != 0) {
     errno_ = errno;
     return false;
   }
@@ -178,10 +182,7 @@ bool FileOutputStream::CopyingFileOutputStream::Close() {
   ABSL_CHECK(!is_closed_);
 
   is_closed_ = true;
-  if (close_no_eintr(file_) != 0) {
-    // The docs on close() do not specify whether a file descriptor is still
-    // open after close() fails with EIO.  However, the glibc source code
-    // seems to indicate that it is not.
+  if (close_handle_eintr(file_) != 0) {
     errno_ = errno;
     return false;
   }
